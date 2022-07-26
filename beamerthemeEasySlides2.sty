@@ -183,47 +183,47 @@
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{theorem}%
-    {\thmname}[section]
+    {\thmname}%[section]
 \newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.5pt,
     roundcorner=2pt,backgroundcolor=none,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{corollary}%
-    {\corname}[section]
+    {\corname}%[section]
 \newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.5pt,
     roundcorner=2pt,backgroundcolor=none,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{lemma}%
-    {\lmmname}[section]
+    {\lmmname}%[section]
 \newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.5pt,
     roundcorner=2pt,backgroundcolor=none,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{proposition}%
-    {\proname}[section]
+    {\proname}%[section]
 \newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.5pt,
     roundcorner=2pt,backgroundcolor=none,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{definition}%
-    {\defname}[section]
+    {\defname}%[section]
 
 %----- numbered environment -----
 \newcounter{example}[section]
 
 \if@docn
     \newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
-    \noindent{\bfseries\heiti\color{structure.fg}{\expname~\thesection.\theexample}} \rmfamily #1}{\medskip}
+    \noindent{\bfseries\heiti\color{structure.fg}{\expname~\theexample}} \rmfamily #1}{\medskip}%\thesection.
     \newenvironment{proof}[1][]{\noindent{\bfseries\heiti\color{structure.fg}{\pfname}}~\rmfamily #1}{\medskip}
     \newenvironment{solution}{\par\noindent{\bfseries\heiti\color{structure.fg}{\solname}}~}{\par}
     \else
     \newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
-    \noindent{\bfseries\color{structure.fg}{\expname~\thesection.\theexample}} \rmfamily #1}{\medskip}
+    \noindent{\bfseries\color{structure.fg}{\expname~\theexample}} \rmfamily #1}{\medskip}%\thesection.
     \newenvironment{proof}[1][]{\noindent{\bfseries\color{structure.fg}{\pfname}}~\rmfamily #1}{\medskip}
     \newenvironment{solution}{\par\noindent{\bfseries\color{structure.fg}{\solname}}~}{\par}
 \fi
@@ -233,9 +233,9 @@
 \newcommand{\QED}{\hfill\ensuremath{\square}}
 
 \setbeamertemplate{caption}[numbered]
-\numberwithin{figure}{section}
-\numberwithin{table}{section}
-\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+%\numberwithin{table}{section}
+%\numberwithin{equation}{section}
 
 \setbeamertemplate{section in toc}[sections numbered]
 \setbeamertemplate{subsection in toc}[subsections numbered]
