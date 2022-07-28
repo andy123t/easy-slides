@@ -11,7 +11,7 @@
 \documentclass[noamsthm,notheorems,11pt,compress]{beamer}
 
 %--------- Beamr theme ----------
-\usetheme[en]{EasySlides2}  % cn,en
+\usetheme[en]{MetaSlides}  % cn,en
 
 %---------- Define new commands ----------
 \newcommand{\red}[1]{\textcolor{red}{#1}}
@@ -44,8 +44,7 @@
 \setlength{\baselineskip}{15pt}
 
 
-{\setbeamertemplate{headline}{}
-\setbeamertemplate{footline}{}
+{%\setbeamertemplate{headline}{}
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}}
@@ -53,14 +52,7 @@
 
 \begin{frame}
 \frametitle{Outline}
-  \vskip 10pt
-  \hspace*{0.5em}
-  \parbox[t]{.95\textwidth}{
-  \begin{minipage}[c]{\textwidth}
-  \setlength{\baselineskip}{2.8em}
-  \tableofcontents
-  \end{minipage}
-  }
+\tableofcontents
 \end{frame}
 
 
@@ -311,7 +303,7 @@ This statement requires citation \cite{Smith2012}.
 \begin{frame}
 %\rmfamily
 \begin{center}
-\Huge\bfseries \textcolor{darkred}{Thank~you!}
+\Huge\bfseries \textcolor{darkblue}{Thank~you!}
 \end{center}
 \end{frame}
 

@@ -11,7 +11,7 @@
 \documentclass[noamsthm,notheorems,11pt,compress]{beamer}
 
 %--------- Beamr theme ----------
-\usetheme[cn]{EasySlides2}  % cn,en
+\usetheme[cn]{MetaSlides}  % cn,en
 
 %---------- 自定义命令 ----------
 \newcommand{\red}[1]{\textcolor{red}{#1}}
@@ -42,8 +42,7 @@
 \setlength{\baselineskip}{15pt}
 
 
-{\setbeamertemplate{headline}{}
-\setbeamertemplate{footline}{}
+{%\setbeamertemplate{headline}{}
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}}
@@ -51,14 +50,7 @@
 
 \begin{frame}
 \frametitle{目录}
-  \vskip 10pt
-  \hspace*{0.5em}
-  \parbox[t]{.95\textwidth}{
-  \begin{minipage}[c]{\textwidth}
-  \setlength{\baselineskip}{2.8em}
-  \tableofcontents
-  \end{minipage}
-  }
+\tableofcontents
 \end{frame}
 
 
@@ -345,7 +337,7 @@ This statement requires citation \cite{Smith2012}. \\~
 \begin{frame}
 %\sffamily
 \begin{center}
-\Huge\bfseries \textcolor{darkred}{谢\quad 谢! \\[8pt]
+\Huge\bfseries \textcolor{darkblue}{谢\quad 谢! \\[8pt]
 Thank you!}
 \end{center}
 \end{frame}

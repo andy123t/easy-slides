@@ -7,8 +7,8 @@ do
 echo "$FileName"
 echo "${FileName%.tex}"
 #-> Compile the main file
-pdflatex --synctex=-1 "$FileName"
-bibtex "${FileName%.tex}"
+#pdflatex --synctex=-1 "$FileName"
+#bibtex "${FileName%.tex}"
 pdflatex --synctex=-1 "$FileName"
 pdflatex --synctex=-1 "$FileName"
 #clear aux files

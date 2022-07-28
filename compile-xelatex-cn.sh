@@ -7,8 +7,8 @@ do
 echo "$FileName"
 echo "${FileName%.tex}"
 #-> Compile the main file
-xelatex --synctex=-1 "$FileName"
-bibtex "${FileName%.tex}"
+#xelatex --synctex=-1 "$FileName"
+#bibtex "${FileName%.tex}"
 xelatex --synctex=-1 "$FileName"
 xelatex --synctex=-1 "$FileName"
 #clear aux files
