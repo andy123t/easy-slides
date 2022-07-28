@@ -29,7 +29,6 @@
 \definecolor{linehead}{rgb}{0.18,0.18,0.64}
 \setbeamercolor{structure}{fg=darkblue}
 
-
 % Color Theme Setting
 %\setbeamercolor*{background canvas}{bg=concrete}
 %\setbeamercolor*{normal text}{fg=black}
@@ -39,7 +38,6 @@
 %\setbeamercolor*{frametitle}{fg=denim}
 %\setbeamercolor*{itemize item}{fg=denim}
 %\setbeamercolor*{enumerate item}{fg=denim}
-
 
 % Set font style
 \usefonttheme{serif}
@@ -60,7 +58,6 @@
 %\setbeamertemplate{itemize item}{*}
 %\setbeamertemplate{itemize subitem}{*}
 %\setbeamertemplate{itemize subsubitem}{*}
-
 
 %---------- Set Beamer font ----------
 \setbeamerfont{normal text}{family=\rmfamily}
@@ -84,13 +81,7 @@
 \setbeamerfont{block title alert}{size=\normalsize,series=\bfseries}
 %\setbeamerfont{block body alert}{}
 
-%\setbeamerfont{alerted text}{series=\bfseries}
-%\setbeamerfont{structure}{series=\bfseries}
-%\setbeamerfont{title}{size=\normalsize,series=\bfseries}
-%\setbeamerfont{frametitle}{size=\normalsize,series=\bfseries}
-%\setbeamerfont{block title}{size=\normalsize,series=\bfseries}
-%\setbeamerfont{footline}{size*={5}{\z@},series=\bfseries}
-
+%---------- headline and footline ----------
 \setbeamertemplate{headline}{}
 \setbeamertemplate{footline}{%
   \leavevmode\centering
@@ -118,9 +109,7 @@
   \end{beamercolorbox}
 }
 
-
 %--------- Package ----------
-
 \if@docn
 \usepackage[UTF8]{ctex}
 \fi
@@ -141,7 +130,7 @@
 \newcolumntype{C}{>{\centering \arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft \arraybackslash}X}
 
-
+%---------- define newcommand ----------
 \if@docn
     \newcommand\thmname{定理}
     \newcommand\lmmname{引理}
@@ -217,19 +206,17 @@
 
 %----- numbered environment -----
 \newcounter{example}
-
 \if@docn
     \newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
-    \noindent{\bfseries\heiti\color{structure.fg}{\expname~\theexample}} \rmfamily #1}{\medskip}%\thesection.
-    \newenvironment{proof}[1][]{\noindent{\bfseries\heiti\color{structure.fg}{\pfname}}~\rmfamily #1}{\medskip}
-    \newenvironment{solution}{\par\noindent{\bfseries\heiti\color{structure.fg}{\solname}}~}{\par}
+    \noindent{\bfseries\heiti\color{structure.fg}{\expname~\theexample}}\rmfamily~#1~}{\medskip}%\thesection.
+    \newenvironment{proof}{\noindent{\bfseries\heiti\color{structure.fg}{\pfname}}\rmfamily~}{\medskip}
+    \newenvironment{solution}{\par\noindent{\bfseries\heiti\color{structure.fg}{\solname}}\rmfamily~}{\par}
     \else
     \newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
-    \noindent{\bfseries\color{structure.fg}{\expname~\theexample}} \rmfamily #1}{\medskip}%\thesection.
-    \newenvironment{proof}[1][]{\noindent{\bfseries\color{structure.fg}{\pfname}}~\rmfamily #1}{\medskip}
-    \newenvironment{solution}{\par\noindent{\bfseries\color{structure.fg}{\solname}}~}{\par}
+    \noindent{\bfseries\color{structure.fg}{\expname~\theexample}}\rmfamily~#1~}{\medskip}%\thesection.
+    \newenvironment{proof}{\noindent{\bfseries\color{structure.fg}{\pfname}}\rmfamily~}{\medskip}
+    \newenvironment{solution}{\par\noindent{\bfseries\color{structure.fg}{\solname}}\rmfamily~}{\par}
 \fi
-
 
 %---------- proof symbol ----------
 \newcommand{\QED}{\hfill\ensuremath{\square}}

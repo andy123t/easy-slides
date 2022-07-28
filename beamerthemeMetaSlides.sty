@@ -27,11 +27,9 @@
 \definecolor{darkgreen}{rgb}{0.02,0.18,0.20}
 \definecolor{footer}{rgb}{0.5,0.2,0.5}
 
-%\definecolor{darkred}{rgb}{0.72,0.2,0.15}
-%\definecolor{footer}{rgb}{0.5,0.2,0.5}
+\definecolor{darkred}{rgb}{0.95,0.2,0.15}
 \definecolor{darkgreen2}{rgb}{0.2,0.7,0.5}%{0.2,0.8,0.2}
-%\definecolor{darkblue}{rgb}{0.1,0,0.85}
-%\setbeamercolor{structure}{fg=darkblue}
+\definecolor{deepblue}{rgb}{0.1,0,0.85}
 
 % Color Theme Setting
 \setbeamercolor{frametitle}{fg=darkblue,bg=black!5}
@@ -45,6 +43,8 @@
 
 \setbeamercolor{structure}{fg=darkblue}
 \setbeamercolor{alerted text}{fg=darkorange}
+%\setbeamercolor{structure}{fg=deepblue}
+%\setbeamercolor{alerted text}{fg=darkred}
 
 %\setbeamercolor{title}{fg=darkred}
 %\setbeamercolor{subtitle}{bg=white, fg=darkred}
@@ -59,7 +59,6 @@
 %\setbeamercolor*{frametitle}{fg=denim}
 %\setbeamercolor*{itemize item}{fg=denim}
 %\setbeamercolor*{enumerate item}{fg=denim}
-
 
 % Set font style
 \usefonttheme{serif}
@@ -121,24 +120,6 @@
 \setbeamerfont{block title alert}{size=\normalsize,series=\bfseries}
 %\setbeamerfont{block body alert}{}
 
-%\setbeamerfont{alerted text}{series=\bfseries}
-%\setbeamerfont{structure}{series=\bfseries}
-%\setbeamerfont{title}{size=\normalsize,series=\bfseries}
-%\setbeamerfont{frametitle}{size=\normalsize,series=\bfseries}
-%\setbeamerfont{block title}{size=\normalsize,series=\bfseries}
-%\setbeamerfont{footline}{size*={5}{\z@},series=\bfseries}
-
-%\setbeamertemplate{headline}{}
-%\setbeamertemplate{footline}{%
-%  \leavevmode\centering
-%  \begin{beamercolorbox}[colsep=0.5pt,wd=11.5cm]{foot separation line}
-%  \end{beamercolorbox} \vskip3pt
-%  \usebeamercolor[footer]{page number in head/foot}%
-%  \usebeamerfont{page number in head/foot}%
-%  \hfill \insertframenumber \,/\,\inserttotalframenumber
-%  \kern2em\vskip4pt%
-%}
-
 % change the style of headline
 \setbeamertemplate{headline}{
 \begin{beamercolorbox}[ht=4.5ex]{section in head/foot} %,dp=0.0ex
@@ -174,7 +155,6 @@
 
 
 %--------- Package ----------
-
 \if@docn
 \usepackage[UTF8]{ctex}
 \fi
@@ -195,7 +175,7 @@
 \newcolumntype{C}{>{\centering \arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft \arraybackslash}X}
 
-
+%---------- define newcommand ----------
 \if@docn
     \newcommand\thmname{定理}
     \newcommand\lmmname{引理}
@@ -216,6 +196,13 @@
     \newcommand\solname{Solution.}
 \fi
 
+%---------- Theorem color ----------
+\definecolor{bgcolor1}{rgb}{0.95,0.95,1}
+\definecolor{lncolor1}{rgb}{0.63,0.58,0}
+\definecolor{bgcolor2}{rgb}{0.95,0.95,0.95}
+\definecolor{lncolor2}{rgb}{0.95,0.4,0.1}
+\definecolor{bgcolor3}{rgb}{0.9,1,0.9}
+\definecolor{lncolor3}{rgb}{0,0,0}
 
 %---------- Theorem Setting  --------------
 \usepackage[framemethod=tikz]{mdframed}
@@ -233,37 +220,37 @@
 \theoremindent0em
 \theoremseparator{\hspace{0.2em}}
 \theoremnumbering{arabic}
-\colorlet{thmcolor}{darkgreen2}
-\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
-    roundcorner=1pt,backgroundcolor=none,%
+\colorlet{thmcolor}{darkgreen}
+\newmdtheoremenv[linecolor=lncolor1,middlelinewidth=0.5pt,
+    roundcorner=1pt,backgroundcolor=bgcolor1,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{theorem}%
     {\thmname}%[section]
-\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
-    roundcorner=1pt,backgroundcolor=none,%
+\newmdtheoremenv[linecolor=lncolor1,middlelinewidth=0.5pt,
+    roundcorner=1pt,backgroundcolor=bgcolor1,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{corollary}%
     {\corname}%[section]
-\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
-    roundcorner=1pt,backgroundcolor=none,%
+\newmdtheoremenv[linecolor=lncolor1,middlelinewidth=0.5pt,
+    roundcorner=1pt,backgroundcolor=bgcolor1,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{lemma}%
     {\lmmname}%[section]
-\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
-    roundcorner=1pt,backgroundcolor=none,%
+\newmdtheoremenv[linecolor=lncolor2,middlelinewidth=0.5pt,
+    roundcorner=1pt,backgroundcolor=bgcolor2,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{proposition}%
     {\proname}%[section]
-\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
-    roundcorner=1pt,backgroundcolor=none,%
+\newmdtheoremenv[linecolor=lncolor3,middlelinewidth=0.5pt,
+    roundcorner=1pt,backgroundcolor=bgcolor3,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
@@ -275,16 +262,15 @@
 
 \if@docn
     \newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
-    \noindent{\bfseries\heiti\color{structure.fg}{\expname~\theexample}} \rmfamily #1}{\medskip}%\thesection.
-    \newenvironment{proof}[1][]{\noindent{\bfseries\heiti\color{structure.fg}{\pfname}}~\rmfamily #1}{\medskip}
-    \newenvironment{solution}{\par\noindent{\bfseries\heiti\color{structure.fg}{\solname}}~}{\par}
+    \noindent{\bfseries\heiti\color{structure.fg}{\expname~\theexample}}\rmfamily~#1~}{\medskip}%\thesection.
+    \newenvironment{proof}{\noindent{\bfseries\heiti\color{structure.fg}{\pfname}}\rmfamily~}{\medskip}
+    \newenvironment{solution}{\par\noindent{\bfseries\heiti\color{structure.fg}{\solname}}\rmfamily~}{\par}
     \else
     \newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
-    \noindent{\bfseries\color{structure.fg}{\expname~\theexample}} \rmfamily #1}{\medskip}%\thesection.
-    \newenvironment{proof}[1][]{\noindent{\bfseries\color{structure.fg}{\pfname}}~\rmfamily #1}{\medskip}
-    \newenvironment{solution}{\par\noindent{\bfseries\color{structure.fg}{\solname}}~}{\par}
+    \noindent{\bfseries\color{structure.fg}{\expname~\theexample}}\rmfamily~#1~~}{\medskip}%\thesection.
+    \newenvironment{proof}{\noindent{\bfseries\color{structure.fg}{\pfname}}\rmfamily~}{\medskip}
+    \newenvironment{solution}{\par\noindent{\bfseries\color{structure.fg}{\solname}}\rmfamily~}{\par}
 \fi
-
 
 %---------- proof symbol ----------
 \newcommand{\QED}{\hfill\ensuremath{\square}}

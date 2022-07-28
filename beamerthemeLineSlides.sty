@@ -68,7 +68,6 @@
 %\setbeamercolor*{itemize item}{fg=denim}
 %\setbeamercolor*{enumerate item}{fg=denim}
 
-
 % Set font style
 \usefonttheme{serif}
 \usefonttheme{professionalfonts}
@@ -88,7 +87,6 @@
 %\setbeamertemplate{itemize item}{*}
 %\setbeamertemplate{itemize subitem}{*}
 %\setbeamertemplate{itemize subsubitem}{*}
-
 
 %---------- Set Beamer  font ----------
 \setbeamerfont{normal text}{family=\rmfamily}
@@ -115,7 +113,6 @@
   \kern1.5em\vskip4pt%
 }
 
-
 %--------- Package ----------
 %\usepackage[english]{babel}
 \usepackage{amsmath,amssymb}
@@ -134,7 +131,7 @@
 \newcolumntype{C}{>{\centering \arraybackslash}X}
 \newcolumntype{R}{>{\raggedleft \arraybackslash}X}
 
-
+%---------- define newcommand ----------
 \if@docn
     \newcommand\thmname{定理}
     \newcommand\lmmname{引理}
@@ -155,7 +152,6 @@
     \newcommand\solname{Solution.}
 \fi
 
-
 %---------- Theorem Setting  --------------
 \usepackage[framemethod=tikz]{mdframed}
 \usepackage[amsmath,thref,thmmarks,hyperref]{ntheorem}
@@ -173,35 +169,35 @@
 \theoremseparator{\hspace{0.2em}}
 \theoremnumbering{arabic}
 \colorlet{thmcolor}{darkgreen}
-\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
+\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.5pt,
     roundcorner=1pt,backgroundcolor=none,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{theorem}%
     {\thmname}%[section]
-\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
+\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.5pt,
     roundcorner=1pt,backgroundcolor=none,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{corollary}%
     {\corname}%[section]
-\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
+\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.5pt,
     roundcorner=1pt,backgroundcolor=none,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{lemma}%
     {\lmmname}%[section]
-\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
+\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.5pt,
     roundcorner=1pt,backgroundcolor=none,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
     skipbelow=0.5em,skipabove=1em,%
     splittopskip=\topskip,ntheorem]{proposition}%
     {\proname}%[section]
-\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
+\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.5pt,
     roundcorner=1pt,backgroundcolor=none,%
     innertopmargin=0.5em,innerbottommargin=0.5em,%
     innerleftmargin=3pt,innerrightmargin=3pt,%
@@ -214,16 +210,15 @@
 
 \if@docn
     \newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
-    \noindent{\bfseries\heiti\color{structure.fg}{\expname~\theexample}} \rmfamily #1}{\medskip}%\thesection.
-    \newenvironment{proof}[1][]{\noindent{\bfseries\heiti\color{structure.fg}{\pfname}}~\rmfamily #1}{\medskip}
-    \newenvironment{solution}{\par\noindent{\bfseries\heiti\color{structure.fg}{\solname}}~}{\par}
+    \noindent{\bfseries\heiti\color{structure.fg}{\expname~\theexample}}\rmfamily~#1~}{\medskip}%\thesection.
+    \newenvironment{proof}{\noindent{\bfseries\heiti\color{structure.fg}{\pfname}}\rmfamily~}{\medskip}
+    \newenvironment{solution}{\par\noindent{\bfseries\heiti\color{structure.fg}{\solname}}\rmfamily~}{\par}
     \else
     \newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
-    \noindent{\bfseries\color{structure.fg}{\expname~\theexample}} \rmfamily #1}{\medskip}%\thesection.
-    \newenvironment{proof}[1][]{\noindent{\bfseries\color{structure.fg}{\pfname}}~\rmfamily #1}{\medskip}
-    \newenvironment{solution}{\par\noindent{\bfseries\color{structure.fg}{\solname}}~}{\par}
+    \noindent{\bfseries\color{structure.fg}{\expname~\theexample}}\rmfamily~#1~}{\medskip}%\thesection.
+    \newenvironment{proof}{\noindent{\bfseries\color{structure.fg}{\pfname}}\rmfamily~}{\medskip}
+    \newenvironment{solution}{\par\noindent{\bfseries\color{structure.fg}{\solname}}\rmfamily~}{\par}
 \fi
-
 
 %---------- proof symbol ----------
 \newcommand{\QED}{\hfill\ensuremath{\square}}
