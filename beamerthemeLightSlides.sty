@@ -1,5 +1,5 @@
 %%
-%% This is file `beamerthemeMetaSlides.sty',
+%% This is file `beamerthemeLightSlides.sty',
 %%
 %% Copyright (c) 2022 Liutao Tian <andy123t@163.com>
 %%
@@ -128,6 +128,28 @@
 %\begin{beamercolorbox}[colsep=1.5pt,ht=.3ex]{upper separation line head}
 %\end{beamercolorbox}
 %}
+
+\setbeamertemplate{frametitle}{
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \@tempdima=\textwidth%
+    \advance\@tempdima by\beamer@leftmargin%
+    \advance\@tempdima by\beamer@rightmargin%
+    \hspace*{1pt}\vspace*{-18pt} %%%%%%%%%%%%% For example insert shift to right
+    \begin{beamercolorbox}[sep=0.3cm,wd=\the\@tempdima]{frametitle}
+        \usebeamerfont{frametitle}%
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@ftecenter\endcsname\fi%
+        \strut\insertframetitle\strut\par%
+        {%
+            \ifx\insertframesubtitle\@empty%
+            \else%
+            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+            \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+    \end{beamercolorbox}%
+}
 
 %\setbeamertemplate{frametitle}{%
 %    \nointerlineskip%
