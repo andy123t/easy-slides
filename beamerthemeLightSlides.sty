@@ -1,5 +1,5 @@
 %%
-%% This is file `beamerthemeMetaSlides.sty',
+%% This is file `beamerthemeLightSlides.sty',
 %%
 %% Copyright (c) 2022 Liutao Tian <andy123t@163.com>
 %%
@@ -81,6 +81,7 @@
 %---------- Set Beamer  font ----------
 \setbeamerfont{normal text}{family=\rmfamily}
 \setbeamerfont{frametitle}{family=\rmfamily,size=\large,series=\bfseries}
+\setbeamerfont{framesubtitle}{family=\rmfamily,size=\small,series=\bfseries}
 \setbeamerfont{title}{family=\rmfamily,series=\bfseries}
 \setbeamerfont{subtitle}{family=\rmfamily}
 %\setbeamerfont{institute}{family=\rmfamily}
@@ -110,7 +111,7 @@
   \ht\kmbmr@tmpboxa=1mm\dp\kmbmr@tmpboxa=0mm
   \ht\kmbmr@tmpboxb=1mm\dp\kmbmr@tmpboxb=0mm
   \vspace{3mm}
-  \hspace{4mm}\noindent\color{headbg}\box\kmbmr@tmpboxa\hfill\color{footer!80}\tiny\box\kmbmr@tmpboxb\hspace{3mm}
+  \hspace{4mm}\noindent\color{headbg}\box\kmbmr@tmpboxa\hfill\color{footer!80}\tiny\box\kmbmr@tmpboxb\hspace{2.5mm}
   \vspace{2pt} \vspace{1.5pt}
   \begin{beamercolorbox}[colsep=1.5pt,ht=.3ex]{upper separation line head}\end{beamercolorbox}
 }
@@ -127,6 +128,28 @@
 %\begin{beamercolorbox}[colsep=1.5pt,ht=.3ex]{upper separation line head}
 %\end{beamercolorbox}
 %}
+
+\setbeamertemplate{frametitle}{
+    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+    \@tempdima=\textwidth%
+    \advance\@tempdima by\beamer@leftmargin%
+    \advance\@tempdima by\beamer@rightmargin%
+    \hspace*{1pt}\vspace*{-18pt} %%%%%%%%%%%%% For example insert shift to right
+    \begin{beamercolorbox}[sep=0.3cm,wd=\the\@tempdima]{frametitle}
+        \usebeamerfont{frametitle}%
+        \vbox{}\vskip-1ex%
+        \if@tempswa\else\csname beamer@ftecenter\endcsname\fi%
+        \strut\insertframetitle\strut\par%
+        {%
+            \ifx\insertframesubtitle\@empty%
+            \else%
+            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+            \fi
+        }%
+        \vskip-1ex%
+        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+    \end{beamercolorbox}%
+}
 
 %\setbeamertemplate{frametitle}{%
 %    \nointerlineskip%
