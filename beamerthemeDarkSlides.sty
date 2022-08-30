@@ -1,0 +1,323 @@
+%%
+%% This is file `beamerthemeDarkSlides.sty',
+%%
+%% Copyright (c) 2022 Liutao Tian <andy123t@163.com>
+%%
+%% Distributable under the MIT License:
+%% http://www.opensource.org/licenses/mit-license.php
+%%
+
+\ProvidesPackage{beamerthemeDarkSlides}
+
+\mode<presentation>
+
+\newif\if@docn\@docnfalse
+\DeclareOption{cn}{\@docntrue}
+\DeclareOption{en}{\@docnfalse}
+\ProcessOptions
+
+\newbox\kmbmr@tmpboxa
+\newbox\kmbmr@tmpboxb
+
+\usepackage{color,xcolor}
+
+% Define color
+\definecolor{lightgray}{rgb}{0.2,0.2,0.2}
+\definecolor{whiteee}{rgb}{0.93,0.93,0.93}
+\definecolor{tomato}{rgb}{1,0.39,0.28}
+\definecolor{gold}{rgb}{1,0.84,0}
+\definecolor{chartreuse}{rgb}{0.5,1,0}
+\definecolor{darkgreen2}{rgb}{0.2,0.7,0.5}%{0.2,0.8,0.2}
+
+% Color Theme Setting
+\setbeamercolor{background canvas}{bg=lightgray}
+\setbeamercolor{normal text}{fg=whiteee}
+\setbeamercolor{alerted text}{fg=tomato}
+\setbeamercolor{structure}{fg=gold}
+
+\setbeamercolor{title}{fg=chartreuse}
+\setbeamercolor{frametitle}{fg=chartreuse}
+
+\setbeamercolor{itemize item}{fg=chartreuse}
+\setbeamercolor{enumerate item}{fg=chartreuse}
+
+%\setbeamercolor{frametitle}{fg=darkblue,bg=black!5}
+%\setbeamercolor{section in head/foot}{fg=structure.fg!50} %structure.fg
+%\setbeamercolor{upper separation line head}{bg=linecolor}
+%\setbeamercolor{section in head/foot}{fg=black!5}
+
+%\setbeamercolor{title in head/foot}{bg=darkgreen,fg=black!5}
+%\setbeamercolor{section in toc}{fg=darkorange}
+
+%\setbeamercolor{structure}{fg=darkblue}
+%\setbeamercolor{alerted text}{fg=darkorange}
+
+%\setbeamercolor{title}{fg=darkred}
+%\setbeamercolor{subtitle}{bg=white, fg=darkred}
+%\setbeamercolor{section in toc}{fg=darkred}
+%\setbeamercolor{subsection in toc}{fg=darkred}
+
+%\setbeamercolor*{background canvas}{bg=concrete}
+%\setbeamercolor*{normal text}{fg=black}
+%\setbeamercolor*{alerted text}{fg=tamarillo}
+%\setbeamercolor*{structure}{fg=gold}
+%\setbeamercolor*{title}{fg=denim}
+%\setbeamercolor*{frametitle}{fg=denim}
+%\setbeamercolor*{itemize item}{fg=denim}
+%\setbeamercolor*{enumerate item}{fg=denim}
+
+% Set font style
+\usefonttheme{serif}
+\usefonttheme{professionalfonts}
+
+\setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
+
+\setbeamertemplate{blocks}[default]
+\setbeamertemplate{navigation symbols}{}
+
+% Itemize items: default (triangle), circle, square, ball
+\setbeamertemplate{itemize items}[circle]
+
+% Enumerate items: default, circle, square, ball
+%\setbeamertemplate{enumerate items}[circle]
+%\setbeamertemplate{section in toc}[square]
+
+%\setbeamertemplate{itemize item}{*}
+%\setbeamertemplate{itemize subitem}{*}
+%\setbeamertemplate{itemize subsubitem}{*}
+
+%---------- Set Beamer  font ----------
+\setbeamerfont{normal text}{family=\rmfamily}
+\setbeamerfont{frametitle}{family=\rmfamily,size=\large,series=\bfseries}
+\setbeamerfont{framesubtitle}{family=\rmfamily,size=\small,series=\bfseries}
+\setbeamerfont{title}{family=\rmfamily,series=\bfseries}
+\setbeamerfont{subtitle}{family=\rmfamily}
+%\setbeamerfont{institute}{family=\rmfamily}
+%\setbeamerfont{author}{family=\rmfamily}
+%\setbeamerfont{date}{family=\rmfamily}
+%\setbeamerfont{headline}{series=\bfseries}
+%\setbeamerfont{footline}{series=\bfseries}
+\setbeamerfont{headline}{family=\rmfamily,series=\bfseries,size=\scriptsize}
+\setbeamerfont{footline}{family=\sffamily}
+\setbeamerfont{section in toc}{family=\rmfamily,series=\bfseries}
+\setbeamerfont{subsection in toc}{family=\rmfamily,series=\bfseries}
+\setbeamerfont{page number in head/foot}{size=\tiny}
+%\AtBeginDocument{\usebeamerfont{normal text}}
+%\setbeamertemplate{theorems}[normal font]
+
+\setbeamerfont{block title}{size=\normalsize,series=\bfseries}
+%\setbeamerfont{block body}{}
+\setbeamerfont{block title example}{size=\normalsize,series=\bfseries}
+%\setbeamerfont{block body example}{}
+\setbeamerfont{block title alert}{size=\normalsize,series=\bfseries}
+%\setbeamerfont{block body alert}{}
+
+% change the style of headline and footline
+\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{
+  \setbox\kmbmr@tmpboxa\hbox{[\ifnum\insertsectionnumber>0\boldmath\insertsectionnumber.~\insertsection\else\char"7E\fi]}
+  \setbox\kmbmr@tmpboxb\hbox{[\insertframenumber/\inserttotalframenumber]}
+  \ht\kmbmr@tmpboxa=1mm\dp\kmbmr@tmpboxa=0mm
+  \ht\kmbmr@tmpboxb=1mm\dp\kmbmr@tmpboxb=0mm
+  \vspace{5.2mm}
+  \hspace{2mm}\noindent\box\kmbmr@tmpboxa\hfill\box\kmbmr@tmpboxb\hspace{2mm}
+  \vspace{1.3mm}
+}
+
+%\setbeamertemplate{frametitle}{
+%    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+%    \@tempdima=\textwidth%
+%    \advance\@tempdima by\beamer@leftmargin%
+%    \advance\@tempdima by\beamer@rightmargin%
+%    \hspace*{1pt}\vspace*{-18pt} %%%%%%%%%%%%% For example insert shift to right
+%    \begin{beamercolorbox}[sep=0.3cm,wd=\the\@tempdima]{frametitle}
+%        \usebeamerfont{frametitle}%
+%        \vbox{}\vskip-1ex%
+%        \if@tempswa\else\csname beamer@ftecenter\endcsname\fi%
+%        \strut\insertframetitle\strut\par%
+%        {%
+%            \ifx\insertframesubtitle\@empty%
+%            \else%
+%            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+%            \fi
+%        }%
+%        \vskip-1ex%
+%        \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+%    \end{beamercolorbox}%
+%}
+
+%\setbeamertemplate{frametitle}{%
+%    \nointerlineskip%
+%    \begin{beamercolorbox}[wd=\paperwidth,ht=2.75ex,dp=1ex]{frametitle}
+%        \hspace*{1.5ex}\insertframetitle%
+%    \end{beamercolorbox}%
+%    %\vspace*{-1ex}
+%}
+
+%\setbeamertemplate{footline}{%
+%  \leavevmode\centering
+%  \begin{beamercolorbox}[colsep=0.5pt,wd=11.5cm]{foot separation line}
+%  \end{beamercolorbox} \vskip3pt
+%  \usebeamercolor[footer]{page number in head/foot}%
+%  \usebeamerfont{page number in head/foot}%
+%  \hfill \insertframenumber \,/\,\inserttotalframenumber
+%  \kern2em\vskip4pt%
+%}
+
+%--------- Package ----------
+\if@docn
+\usepackage[UTF8]{ctex}
+\fi
+%\usepackage[english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx,fancybox,mathrsfs,multirow}
+\usepackage{booktabs}
+\usepackage{url,hyperref}
+\usepackage{tabularx,array,makecell}
+\usepackage{mathtools}
+\usepackage{tikz}
+
+\graphicspath{{./figures/}{./figure/}{./images}{/.imgage/}}
+
+%---------- Define new commands for tables ----------
+\newcolumntype{P}[1]{>{\centering \arraybackslash}p{#1}}
+\newcolumntype{L}{X}
+\newcolumntype{C}{>{\centering \arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft \arraybackslash}X}
+
+%---------- define newcommand ----------
+\if@docn
+    \newcommand\thmname{定理}
+    \newcommand\lmmname{引理}
+    \newcommand\corname{推论}
+    \newcommand\proname{命题}
+    \newcommand\defname{定义}
+    \newcommand\expname{例}
+    \newcommand\pfname{证明:}
+    \newcommand\solname{解:}
+    \else
+    \newcommand\thmname{Theorem}
+    \newcommand\lmmname{Lemma}
+    \newcommand\corname{Corollary}
+    \newcommand\proname{Proposition}
+    \newcommand\defname{Definition}
+    \newcommand\expname{Example}
+    \newcommand\pfname{Proof.}
+    \newcommand\solname{Solution.}
+\fi
+
+%---------- Theorem Setting  --------------
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage[amsmath,thref,thmmarks,hyperref]{ntheorem}
+\theorempreskipamount1.2em  % spacing before the environment
+\theorempostskipamount0em  % spacing after the environment
+\theorempostwork{\noindent}
+\theoremstyle{numberplain} %numberplain{nonumberbreak}
+\if@docn
+\theoremheaderfont{\color{structure.fg}\bfseries\heiti} % blue
+\else
+\theoremheaderfont{\color{structure.fg}\bfseries} % blue
+\fi
+\theorembodyfont{\color{whiteee}\rmfamily} %
+\theoremindent0em
+\theoremseparator{\hspace{0.2em}}
+\theoremnumbering{arabic}
+\colorlet{thmcolor}{darkgreen2}
+\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
+    roundcorner=1pt,backgroundcolor=none,%
+    innertopmargin=0.5em,innerbottommargin=-0.6em,%
+    innerleftmargin=3pt,innerrightmargin=3pt,%
+    skipbelow=0.5em,skipabove=1em,%
+    splittopskip=\topskip,ntheorem]{theorem}%
+    {\thmname}%[section]
+\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
+    roundcorner=1pt,backgroundcolor=none,%
+    innertopmargin=0.5em,innerbottommargin=0.5em,%
+    innerleftmargin=3pt,innerrightmargin=3pt,%
+    skipbelow=0.5em,skipabove=1em,%
+    splittopskip=\topskip,ntheorem]{corollary}%
+    {\corname}%[section]
+\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
+    roundcorner=1pt,backgroundcolor=none,%
+    innertopmargin=0.5em,innerbottommargin=0.5em,%
+    innerleftmargin=3pt,innerrightmargin=3pt,%
+    skipbelow=0.5em,skipabove=1em,%
+    splittopskip=\topskip,ntheorem]{lemma}%
+    {\lmmname}%[section]
+\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
+    roundcorner=1pt,backgroundcolor=none,%
+    innertopmargin=0.5em,innerbottommargin=0.5em,%
+    innerleftmargin=3pt,innerrightmargin=3pt,%
+    skipbelow=0.5em,skipabove=1em,%
+    splittopskip=\topskip,ntheorem]{proposition}%
+    {\proname}%[section]
+\newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.6pt,
+    roundcorner=1pt,backgroundcolor=none,%
+    innertopmargin=0.5em,innerbottommargin=0.5em,%
+    innerleftmargin=3pt,innerrightmargin=3pt,%
+    skipbelow=0.5em,skipabove=1em,%
+    splittopskip=\topskip,ntheorem]{definition}%
+    {\defname}%[section]
+
+%----- numbered environment -----
+\newcounter{example}
+
+\if@docn
+    \newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
+    \noindent{\bfseries\heiti\color{structure.fg}{\expname~\theexample}}\rmfamily~#1~}{\medskip}%\thesection.
+    \newenvironment{proof}{\noindent{\bfseries\heiti\color{structure.fg}{\pfname}}\rmfamily~}{\medskip}
+    \newenvironment{solution}{\par\noindent{\bfseries\heiti\color{structure.fg}{\solname}}\rmfamily~}{\par}
+    \else
+    \newenvironment{example}[1][]{\refstepcounter{example}\par\medskip
+    \noindent{\bfseries\color{structure.fg}{\expname~\theexample}}\rmfamily~#1~~}{\medskip}%\thesection.
+    \newenvironment{proof}{\noindent{\bfseries\color{structure.fg}{\pfname}}\rmfamily~}{\medskip}
+    \newenvironment{solution}{\par\noindent{\bfseries\color{structure.fg}{\solname}}\rmfamily~}{\par}
+\fi
+
+%---------- proof symbol ----------
+\newcommand{\QED}{\hfill\ensuremath{\square}}
+
+\setbeamertemplate{caption}[numbered]
+%\numberwithin{figure}{section}
+%\numberwithin{table}{section}
+%\numberwithin{equation}{section}
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+
+%---------- Adjust the spacing of the formula ----------
+\AtBeginDocument{
+	\setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}
+	\setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}
+	\setlength{\abovedisplayshortskip}{2pt}
+	\setlength{\belowdisplayshortskip}{2pt}
+	%\setlength{\arraycolsep}{2pt}
+}
+
+%\AtBeginSection[]{
+%\begin{frame}
+%  \frametitle{Outline}
+%  \vskip 10pt
+%  \hspace*{0.5em}
+%  \parbox[t]{.95\textwidth}{
+%  \begin{minipage}[c]{\textwidth}
+%  \setlength{\baselineskip}{2.8em}
+%  \tableofcontents[currentsection,currentsubsection,subsectionstyle=show/show/shaded]
+%  \end{minipage}
+%  }
+%  \addtocounter{framenumber}{-1}
+%\end{frame}
+%}
+
+%\AtBeginSection[]{
+%\begin{frame}[plain]{}
+%  \LARGE\centering
+%  \tableofcontents[currentsection,sectionstyle=show/hide]
+%  \addtocounter{framenumber}{-1}
+%\end{frame}
+%}
+
+\mode
+<all>
+
+\endinput
