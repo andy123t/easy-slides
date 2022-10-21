@@ -1,5 +1,5 @@
 %%
-%% This is file `beamerthemeLineSlides.sty',
+%% This is file `beamerthemeNeatSlides.sty',
 %%
 %% Copyright (c) 2022 Liutao Tian <andy123t@163.com>
 %%
@@ -7,7 +7,7 @@
 %% http://www.opensource.org/licenses/mit-license.php
 %%
 
-\ProvidesPackage{beamerthemeLineSlides}
+\ProvidesPackage{beamerthemeNeatSlides}
 
 \mode<presentation>
 
@@ -20,45 +20,31 @@
 \usepackage[UTF8]{ctex}
 \fi
 
-%------- Beamer theme ------
-\usetheme[progressbar=frametitle]{metropolis}
-%\metroset{sectionpage=none}
-\usecolortheme{spruce}
-
 \usepackage{color,xcolor}
 \usepackage{tcolorbox}
 
 % Define color
-%\definecolor{iron}{RGB}{0,82,67}
+\definecolor{iron}{RGB}{0,82,67}
+\definecolor{darkgray}{RGB}{34,55,58}
 \definecolor{footer}{rgb}{0.5,0.2,0.5}
-\setbeamercolor{frametitle}{fg=black,bg=white}
-\definecolor{color1}{RGB}{51,132,91}
-\definecolor{color2}{RGB}{229,239,234}
-\setbeamercolor{progress bar}{fg=color1,bg=color2}
-\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{frametitle}{fg=white,bg=iron}
 \setbeamercolor{block title}{bg=white}
-
-\setlength{\metropolis@titleseparator@linewidth}{0.5pt}
-\setlength{\metropolis@progressonsectionpage@linewidth}{0.5pt}
-%\setlength{\metropolis@progressinheadfoot@linewidth}{0.5pt}
-\setlength{\metropolis@frametitle@padding}{1.6ex} % <- default 2.2 ex
 
 %\definecolor{darkred}{rgb}{0.72,0.2,0.15}
 %\definecolor{footer}{rgb}{0.5,0.2,0.5}
-\definecolor{darkgray}{RGB}{0,61,30}
-\definecolor{lightgreen}{RGB}{229,239,234}
 \definecolor{darkgreen}{rgb}{0.2,0.7,0.5}
 \definecolor{darkblue}{rgb}{0.1,0,0.85}
 %\setbeamercolor{structure}{fg=darkblue}
 
+\setbeamercolor{structure}{fg=darkgray}
+%\setbeamercolor{alerted text}{fg=magenta}
+
 % Color Theme Setting
 %\setbeamercolor{title}{fg=darkred}
-\setbeamercolor{title}{bg=lightgreen,fg=darkgray}
-\setbeamercolor{subtitle}{bg=lightgreen,fg=darkgray}
-\setbeamercolor{frametitle}{bg=lightgreen,fg=darkgray}
+\setbeamercolor{title}{bg=iron,fg=white}
+%\setbeamercolor{subtitle}{bg=white,fg=darkred}
 %\setbeamercolor{section in toc}{fg=darkred}
 %\setbeamercolor{subsection in toc}{fg=darkred}
-\setbeamercolor{alerted text}{fg=magenta}
 
 %\setbeamercolor*{background canvas}{bg=concrete}
 %\setbeamercolor*{normal text}{fg=black}
@@ -106,12 +92,14 @@
 
 %\setbeamertemplate{footline}{}
 \setbeamertemplate{footline}{
-  \hfill%
+  \leavevmode%
+  \hskip3em \normalfont \insertshortauthor ~~$|$~~ 
+  \insertshorttitle \hfill
   %\usebeamercolor[fg]{page number in head/foot}%
   \usebeamercolor[footer]{page number in head/foot}%
   \usebeamerfont{page number in head/foot} \tiny
-  %\insertframenumber \,/\,\inserttotalframenumber
-  \kern1.5em\vskip4pt%
+  \insertframenumber \,/\,\inserttotalframenumber
+  \kern2em\vskip4pt%
 }
 
 %--------- Package ----------
@@ -256,13 +244,13 @@
 %\end{frame}
 %}
 
-%\AtBeginSection[]{
-%\begin{frame}[plain]{}
-%  \LARGE\centering
-%  \tableofcontents[currentsection,sectionstyle=show/hide]
-%  \addtocounter{framenumber}{-1}
-%\end{frame}
-%}
+\AtBeginSection[]{
+\begin{frame}[plain]{}
+  \LARGE\centering
+  \tableofcontents[currentsection,sectionstyle=show/hide]
+  \addtocounter{framenumber}{-1}
+\end{frame}
+}
 
 \mode
 <all>

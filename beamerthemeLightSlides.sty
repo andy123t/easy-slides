@@ -22,19 +22,19 @@
 \usepackage{color,xcolor}
 
 % Define color
-\definecolor{darkblue}{rgb}{0.1,0.46,0.78}%{0.1,0,0.85}{0.2,0.4,0.8}
-\definecolor{linecolor}{rgb}{0.6,0.6,0.85}%{0.35,0.70,0.725}
+\definecolor{darkblue}{rgb}{0.1,0.46,0.78}
+\definecolor{linecolor}{rgb}{0.6,0.6,0.85}
 \definecolor{darkgreen}{rgb}{0.02,0.18,0.20}
 \definecolor{footer}{rgb}{0.5,0.2,0.5}
 
 \definecolor{darkred}{rgb}{0.95,0.2,0.15}
-\definecolor{darkgreen2}{rgb}{0.2,0.7,0.5}%{0.2,0.8,0.2}
+\definecolor{darkgreen2}{rgb}{0.2,0.7,0.5}
 \definecolor{darkorange}{rgb}{0.80,0.4,0.1}
 \definecolor{headbg}{rgb}{0.1,0.2,0.8}
 
 % Color Theme Setting
 %\setbeamercolor{frametitle}{fg=darkblue,bg=black!5}
-\setbeamercolor{section in head/foot}{fg=structure.fg!50!blue} %structure.fg
+\setbeamercolor{section in head/foot}{fg=structure.fg!50!blue}
 \setbeamercolor{upper separation line head}{bg=linecolor}
 %\setbeamercolor{section in head/foot}{fg=black!5}
 
@@ -106,7 +106,7 @@
 
 % change the style of headline
 \setbeamertemplate{headline}{
-  \setbox\kmbmr@tmpboxa\hbox{\ifnum\insertsectionnumber>0\boldmath\insertsectionnumber.~\insertsection\else\fi}
+  \setbox\kmbmr@tmpboxa\hbox{\ifnum\insertsectionnumber>0\boldmath\insertsectionnumber.~\insertsection\else\insertshorttitle\fi}
   \setbox\kmbmr@tmpboxb\hbox{\insertframenumber/\inserttotalframenumber}
   \ht\kmbmr@tmpboxa=1mm\dp\kmbmr@tmpboxa=0mm
   \ht\kmbmr@tmpboxb=1mm\dp\kmbmr@tmpboxb=0mm

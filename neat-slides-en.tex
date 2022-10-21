@@ -11,7 +11,7 @@
 \documentclass[noamsthm,notheorems,11pt,compress]{beamer}
 
 %--------- Beamer theme ----------
-\usetheme[en]{LineSlides}  % cn,en
+\usetheme[en]{NeatSlides}  % cn,en
 
 %---------- Define new commands ----------
 \newcommand{\red}[1]{\textcolor{red}{#1}}
@@ -24,7 +24,7 @@
 
 \title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{John Smith \\[5pt] \textit{xyz@math.univ.edu} }% Your email address} % Your name
+\author[John Smith]{John Smith \\[5pt] \textit{xyz@math.univ.edu} }% Your email address} % Your name
 \institute[NU] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {\vspace{-8pt}\blue{Name of University} \\[15pt] % Your institution for the title page
 \small Very Large Conference \\[5pt] July 28, 2022
@@ -305,9 +305,10 @@ This statement requires citation \cite{Smith2012}.
 
 
 %------------------------------------------------
-
+%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
 %\setbeamertemplate{headline}{}
-\begin{frame}[standout]
+\begin{frame}
+%\rmfamily
 \begin{center}
 \Huge\bfseries \textcolor{structure.fg}{Thank~you!}
 \end{center}
@@ -315,6 +316,13 @@ This statement requires citation \cite{Smith2012}.
 
 
 %------------------------------------------------
+
+%\thispagestyle{empty}
+%%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+%\begin{frame}
+%\Huge{\centerline{The End}}
+%\end{frame}
+
 
 
 \end{document}
