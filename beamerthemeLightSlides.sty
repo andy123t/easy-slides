@@ -1,47 +1,60 @@
-%%
 %% This is file `beamerthemeLightSlides.sty',
-%%
+%% 
 %% Copyright (c) 2022 Liutao Tian <andy123t@163.com>
-%%
+%% 
 %% Distributable under the MIT License:
 %% http://www.opensource.org/licenses/mit-license.php
 %%
+
 
 \ProvidesPackage{beamerthemeLightSlides}
 
 \mode<presentation>
 
 \newif\if@docn\@docnfalse
+\newif\if@foot\@footfalse
 \DeclareOption{cn}{\@docntrue}
 \DeclareOption{en}{\@docnfalse}
+\DeclareOption{foot}{\@foottrue}
 \ProcessOptions
 
 \newbox\kmbmr@tmpboxa
 \newbox\kmbmr@tmpboxb
 
-\usepackage{color,xcolor}
+% Requirements
+\RequirePackage{color}
+\RequirePackage{xcolor}
+\RequirePackage{ifxetex}
+\RequirePackage{calc}
 
 % Define color
+\definecolor{shnugreen}{RGB}{0,111,104}
 \definecolor{darkblue}{rgb}{0.1,0.46,0.78}
+\definecolor{darkblue2}{RGB}{19,87,149}
 \definecolor{linecolor}{rgb}{0.6,0.6,0.85}
 \definecolor{darkgreen}{rgb}{0.02,0.18,0.20}
+\definecolor{lightgreen}{rgb}{0.35,0.70,0.725}
 \definecolor{footer}{rgb}{0.5,0.2,0.5}
-
 \definecolor{darkred}{rgb}{0.95,0.2,0.15}
 \definecolor{darkgreen2}{rgb}{0.2,0.7,0.5}
 \definecolor{darkorange}{rgb}{0.80,0.4,0.1}
-\definecolor{headbg}{rgb}{0.1,0.2,0.8}
+\definecolor{headfg}{rgb}{0.1,0.2,0.8}
 
 % Color Theme Setting
 %\setbeamercolor{frametitle}{fg=darkblue,bg=black!5}
 \setbeamercolor{section in head/foot}{fg=structure.fg!50!blue}
-\setbeamercolor{upper separation line head}{bg=linecolor}
+\setbeamercolor{upper separation line}{bg=linecolor} % lightgreen
 %\setbeamercolor{section in head/foot}{fg=black!5}
 
-%\setbeamercolor{title in head/foot}{bg=darkgreen,fg=black!5}
+\setbeamercolor{author in head/foot}{fg=darkblue2}
+\setbeamercolor{title in head/foot}{fg=darkblue2}
+\setbeamercolor{date in head/foot}{fg=darkblue2}
 %\setbeamercolor{section in toc}{fg=darkorange}
 
 \setbeamercolor{structure}{fg=darkblue}
+
+\setbeamercolor{page number in head/foot}{fg=footer!80}
+\setbeamercolor{section in head/foot}{fg=headfg}
 %\setbeamercolor{alerted text}{fg=darkorange}
 
 %\setbeamercolor{title}{fg=darkred}
@@ -80,8 +93,8 @@
 
 %---------- Set Beamer  font ----------
 \setbeamerfont{normal text}{family=\rmfamily}
-\setbeamerfont{frametitle}{family=\rmfamily,size=\large,series=\bfseries}
-\setbeamerfont{framesubtitle}{family=\rmfamily,size=\small,series=\bfseries}
+\setbeamerfont{frametitle}{family=\rmfamily,series=\bfseries}
+\setbeamerfont{framesubtitle}{family=\rmfamily,series=\bfseries}
 \setbeamerfont{title}{family=\rmfamily,series=\bfseries}
 \setbeamerfont{subtitle}{family=\rmfamily}
 %\setbeamerfont{institute}{family=\rmfamily}
@@ -89,11 +102,12 @@
 %\setbeamerfont{date}{family=\rmfamily}
 %\setbeamerfont{headline}{series=\bfseries}
 %\setbeamerfont{footline}{series=\bfseries}
-\setbeamerfont{headline}{family=\rmfamily,series=\bfseries,size=\scriptsize}
+\setbeamerfont{headline}{family=\rmfamily,series=\bfseries}
 \setbeamerfont{footline}{family=\sffamily}
 \setbeamerfont{section in toc}{family=\rmfamily,series=\bfseries}
 \setbeamerfont{subsection in toc}{family=\rmfamily,series=\bfseries}
-\setbeamerfont{page number in head/foot}{size=\tiny}
+\setbeamerfont{section in head/foot}{size=\scriptsize}
+\setbeamerfont{page number in head/foot}{size=\scriptsize}
 \AtBeginDocument{\usebeamerfont{normal text}}
 \setbeamertemplate{theorems}[normal font]
 
@@ -106,35 +120,28 @@
 
 % change the style of headline
 \setbeamertemplate{headline}{
-  \setbox\kmbmr@tmpboxa\hbox{\ifnum\insertsectionnumber>0\boldmath\insertsectionnumber.~\insertsection\else\insertshorttitle\fi}
-  \setbox\kmbmr@tmpboxb\hbox{\insertframenumber/\inserttotalframenumber}
-  \ht\kmbmr@tmpboxa=1mm\dp\kmbmr@tmpboxa=0mm
-  \ht\kmbmr@tmpboxb=1mm\dp\kmbmr@tmpboxb=0mm
-  \vspace{3mm}
-  \hspace{4mm}\noindent\color{headbg}\box\kmbmr@tmpboxa\hfill\color{footer!80}\tiny\box\kmbmr@tmpboxb\hspace{2.5mm}
-  \vspace{2pt} \vspace{1.5pt}
-  \begin{beamercolorbox}[colsep=1.5pt,ht=.3ex]{upper separation line head}\end{beamercolorbox}
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.8\paperwidth,ht=4ex,dp=0.6ex,left]{section in head/foot}%
+    \usebeamerfont{section in head/foot} \kern1.8ex\ifnum\insertsectionnumber>0\boldmath\insertsectionnumber.~\insertsection\else\insertshorttitle\fi
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=4ex,dp=0.6ex,right]{page number in head/foot}%
+    \usebeamerfont{page number in head/foot}\hfill %\kern1ex
+    {\insertframenumber\thinspace/\thinspace\inserttotalframenumber}\kern2.5ex
+  \end{beamercolorbox}} \par
+  \vspace{2pt}
+  %\hspace{\beamer@leftmargin}%
+  %\usebeamercolor{upper separation line}
+  %\rule{\paperwidth-\beamer@leftmargin-\beamer@rightmargin}{0.4pt}%
+  \begin{beamercolorbox}[colsep=1.5pt,ht=0.3ex]{upper separation line}\end{beamercolorbox}
 }
-
-%\setbeamertemplate{headline}{
-%\begin{beamercolorbox}[ht=4.5ex]{section in head/foot}
-%\kern1.2em %\insertshorttitle ~ {\color{structure.fg}\bfseries$|$} ~
-%\insertsectionhead  \usebeamercolor[footer]{page number in head/foot}%
-%  \usebeamerfont{page number in head/foot}%
-%  \hfill \insertframenumber \,/\,\inserttotalframenumber \kern1.0em \vskip2pt
-%%\vskip2pt\insertsectionnavigationhorizontal{\textwidth}{}{}\vskip2pt
-%%\vskip2pt\insertnavigation{\paperwidth}\vskip2pt
-%\end{beamercolorbox}
-%\begin{beamercolorbox}[colsep=1.5pt,ht=.3ex]{upper separation line head}
-%\end{beamercolorbox}
-%}
 
 \setbeamertemplate{frametitle}{
     \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
     \@tempdima=\textwidth%
     \advance\@tempdima by\beamer@leftmargin%
     \advance\@tempdima by\beamer@rightmargin%
-    \hspace*{1pt}\vspace*{-18pt} %%%%%%%%%%%%% For example insert shift to right
+    \hspace*{1pt}\vspace*{-20pt} %%%%%%%%%%%%% For example insert shift to right
     \begin{beamercolorbox}[sep=0.3cm,wd=\the\@tempdima]{frametitle}
         \usebeamerfont{frametitle}%
         \vbox{}\vskip-1ex%
@@ -159,15 +166,24 @@
 %    %\vspace*{-1ex}
 %}
 
-%\setbeamertemplate{footline}{%
-%  \leavevmode\centering
-%  \begin{beamercolorbox}[colsep=0.5pt,wd=11.5cm]{foot separation line}
-%  \end{beamercolorbox} \vskip3pt
-%  \usebeamercolor[footer]{page number in head/foot}%
-%  \usebeamerfont{page number in head/foot}%
-%  \hfill \insertframenumber \,/\,\inserttotalframenumber
-%  \kern2em\vskip4pt%
-%}
+\if@foot
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor~(\insertshortinstitute)
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle \hfill
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\hfill\insertshortdate{}\hfill %\kern1ex
+    %\makebox[3em][r]{\insertframenumber\,/\,\inserttotalframenumber}\kern2ex
+  \end{beamercolorbox}}%
+  \vskip2pt%
+}
+\fi
 
 %--------- Package ----------
 \if@docn
@@ -292,11 +308,11 @@
 
 %---------- Adjust the spacing of the formula ----------
 \AtBeginDocument{
-	\setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}
-	\setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}
-	\setlength{\abovedisplayshortskip}{2pt}
-	\setlength{\belowdisplayshortskip}{2pt}
-	%\setlength{\arraycolsep}{2pt}
+  \setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}
+  \setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}
+  \setlength{\abovedisplayshortskip}{2pt}
+  \setlength{\belowdisplayshortskip}{2pt}
+  %\setlength{\arraycolsep}{2pt}
 }
 
 %\AtBeginSection[]{
@@ -326,3 +342,4 @@
 <all>
 
 \endinput
+
