@@ -93,8 +93,8 @@
 %\setbeamertemplate{footline}{}
 \setbeamertemplate{footline}{
   \leavevmode%
-  \hskip3em \normalfont \insertshortauthor ~~$|$~~ 
-  \insertshorttitle \hfill
+  \hskip3em \normalfont \insertshortauthor\expandafter
+    \ifblank\expandafter{\beamer@shorttitle}{}{~~$|$~~\insertshorttitle}\hfill
   %\usebeamercolor[fg]{page number in head/foot}%
   \usebeamercolor[footer]{page number in head/foot}%
   \usebeamerfont{page number in head/foot} \tiny
