@@ -9,10 +9,9 @@
 %--------------------------------------------------------------------------------
 
 \documentclass[noamsthm,notheorems,11pt,compress]{beamer}
-%\documentclass[noamsthm,notheorems,11pt,compress,aspectratio=169]{beamer}
 
 %--------- Beamer theme ----------
-\usetheme[en]{LineSlides}  % cn,en
+\usetheme[en]{ParaSlides}  % cn,en
 
 %---------- Define new commands ----------
 \newcommand{\red}[1]{\textcolor{red}{#1}}
@@ -25,14 +24,13 @@
 
 \title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{John Smith} % Your name
+\author{John Smith \\[5pt] \textit{xyz@math.univ.edu} }% Your email address} % Your name
 \institute[NU] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
-{\blue{Name of University} \\ % Your institution for the title page
-\medskip
-\textit{xyz@math.univ.edu} % Your email address
+{\vspace{-8pt}\blue{Name of University} \\[15pt] % Your institution for the title page
+\small Very Large Conference \\[5pt] July 28, 2022
 }
 
-\date[July 28, 2022]{\small Very Large Conference \\[5pt] July 28, 2022} % Date, can be changed to a custom date
+\date{} % Date, can be changed to a custom date
 
 
 \graphicspath{{./figures/}}
@@ -187,7 +185,7 @@ This is a theorem environment.
 
 This is Pythagorean's theorem
 \begin{equation}\label{Pythagorean}
-  a^2+b^2=c^2.
+  \alert{a^2+b^2=c^2}.
 \end{equation}
 
 This is a simple three-line table.
@@ -296,7 +294,6 @@ This statement requires citation \cite{Smith2012}.
 
 %------------------------------------------------
 
-
 \begin{frame}
 \frametitle{References}
 \footnotesize{
@@ -308,10 +305,9 @@ This statement requires citation \cite{Smith2012}.
 
 
 %------------------------------------------------
-%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+
 %\setbeamertemplate{headline}{}
-\begin{frame}
-\rmfamily
+\begin{frame}[standout]
 \begin{center}
 \Huge\bfseries \textcolor{structure.fg}{Thank~you!}
 \end{center}
@@ -319,13 +315,6 @@ This statement requires citation \cite{Smith2012}.
 
 
 %------------------------------------------------
-
-%\thispagestyle{empty}
-%%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
-%\begin{frame}
-%\Huge{\centerline{The End}}
-%\end{frame}
-
 
 
 \end{document}
