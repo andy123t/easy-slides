@@ -1,8 +1,7 @@
 #!/bin/bash
 
 #-> Get source filename
-find . -name "*cn.tex"|while read FileName;
-do 
+find . -maxdepth 1 -type f -name "*cn.tex" | while read FileName; do 
 #--- Process FileName.tex ---
 echo "$FileName"
 echo "${FileName%.tex}"
@@ -12,6 +11,6 @@ echo "${FileName%.tex}"
 xelatex --synctex=-1 "$FileName"
 xelatex --synctex=-1 "$FileName"
 #clear aux files
-rm -r *.aux *.bbl *.blg *.log *.out *.toc *.bcf *.xml *.synctex *.nlo *.nls *.bak *.ind *.idx *.ilg *.lof *.lot *.ent-x *.tmp *.ltx *.los *.lol *.loc *.listing *.gz *.userbak *.nav *.snm *.vrb 
+rm -r *.aux *.bbl *.blg *.log *.out *.toc *.bcf *.xml *.synctex *.nlo *.nls *.bak *.ind *.idx *.ilg *.lof *.lot *.ent-x *.tmp *.ltx *.los *.lol *.loc *.listing *.gz *.userbak *.nav *.snm *.vrb *.thm 
 done
 

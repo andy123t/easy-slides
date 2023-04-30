@@ -1,40 +1,37 @@
 %======================================================%
 %   Beamer Presentation
 %   LaTeX Template
-%   compile using PDFTeXify or PDFLaTeX
+%   compile using PDFTeXify, PDFLaTeX or XeLaTeX
 %======================================================%
 
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------
 %   PACKAGES AND THEMES
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------
 
 \documentclass[noamsthm,notheorems,11pt,compress]{beamer}
 
 %--------- Beamer theme ----------
-\usetheme[en]{DarkSlides}  % cn,en
+\usetheme[en]{DarkSlides} 
+% language: cn, en
 
 %---------- Define new commands ----------
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor[rgb]{1,0.3,0.1}{#1}}
+\newcommand{\blue}[1]{\textcolor[rgb]{0.1,0.5,1}{#1}}
 
 
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------
 %	TITLE PAGE
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------
 
-\title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Short title]{Full Title of the Talk}
 
-\author{John Smith} % Your name
-\institute[NU]{ % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
-Name of University \\ % Your institution for the title page
+\author{John Smith} % Author name
+\institute[NU]{\vskip -10pt \small \blue{Name of University} \\ % Institution
 \medskip
-\textit{xyz@math.univ.edu} % Your email address
+\textit{xyz@math.univ.edu} % Email address
 }
 
-\date[July 28, 2022]{\small Very Large Conference \\[5pt] July 28, 2022} % Date, can be changed to a custom date
-
-
-\graphicspath{{./figures/}}
+\date[July 28, 2022]{\small Very Large Conference \\[5pt] July 28, 2022}
 
 
 \begin{document}
@@ -44,7 +41,8 @@ Name of University \\ % Your institution for the title page
 \setlength{\baselineskip}{15pt}
 
 
-{%\setbeamertemplate{headline}{}
+{\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{}
 \begin{frame}
 \titlepage % Print the title page as the first slide
 \end{frame}}
@@ -52,13 +50,15 @@ Name of University \\ % Your institution for the title page
 
 \begin{frame}
 \frametitle{Outline}
+\leftskip=1em
 \tableofcontents
 \end{frame}
 
 
-%--------------------------------------------------------------------------------
+%------------------------------------------------
 %	PRESENTATION SLIDES
-%--------------------------------------------------------------------------------
+%------------------------------------------------
+
 
 %------------------------------------------------
 \section{Introduction} %
@@ -115,7 +115,7 @@ This is the alertblock environment. The quick brown fox jumps over the lazy dog.
 
 %------------------------------------------------
 
-\section{Numerical method} %for the model equation
+\section{Numerical method} % for the model equation
 
 %------------------------------------------------
 
@@ -158,19 +158,18 @@ This is a lemma environment.
 This is a proposition environment.
 \end{proposition}
 
-\begin{theorem}[Mass--energy]
+\begin{theorem}[Mass--energy]\label{thm:MassEnergy}
 This is a theorem environment.
 \end{theorem}
 
 \begin{proof}
-This is a proof environment.
+This is a proof environment. \QED
 \end{proof}
-
 \end{frame}
 
 
 %------------------------------------------------
-\section{Numerical results}  %experiments
+\section{Numerical results}  % experiments
 %------------------------------------------------
 
 
@@ -179,7 +178,7 @@ This is a proof environment.
 
 This is Pythagorean's theorem
 \begin{equation}\label{Pythagorean}
-  a^2+b^2=c^2.
+  \alert{a^2+b^2=c^2.}
 \end{equation}
 
 This is a simple three-line table.
@@ -201,7 +200,7 @@ Treatment 3 & 0.0009271 & 0.296 \\
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{}
+
 The new command PLCR is defined to set the length of the width of the table. They can be used in the tabularx environment.
 
 \begin{table}[!htp]
@@ -223,25 +222,30 @@ The new command PLCR is defined to set the length of the width of the table. The
 	\bottomrule
 \end{tabularx}
 \end{table}
+
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Verbatim}
-\begin{example}[Theorem Slide Code]
-\begin{verbatim}
-\begin{frame}
-\frametitle{Theorem}
-\begin{theorem}[Mass--energy equivalence]
-$E = mc^2$
-\end{theorem}
-\end{frame}\end{verbatim}
+\begin{example}
+This is a example environment.
 \end{example}
 
+\bigskip
+Verbatim environment
+\begin{verbatim}
 \begin{theorem}[Mass--energy equivalence]
 $E = mc^2$
 \end{theorem}
+\end{verbatim}
+
+\bigskip
+\begin{theorem}[Mass--energy equivalence]
+$E = mc^2$
+\end{theorem}
+
 \end{frame}
 
 %------------------------------------------------
@@ -252,7 +256,8 @@ $E = mc^2$
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
 \begin{figure}[htp!]
 \centering
-\includegraphics[width=0.6\linewidth]{image1.eps}
+\includegraphics[width=0.5\linewidth]{fig1}
+\caption{Caption of Figure.}
 \end{figure}
 \end{frame}
 
@@ -264,12 +269,12 @@ Uncomment the code on this slide to include your own image from the same directo
 \centering
 \begin{minipage}{0.48\linewidth}
 \centering
-\includegraphics[width=\linewidth]{image1}
+\includegraphics[width=\linewidth]{fig1}
 \caption{Caption of Figure 1.}
 \end{minipage}\hfill
 \begin{minipage}{0.48\linewidth}
 \centering
-\includegraphics[width=\linewidth]{image2}
+\includegraphics[width=\linewidth]{fig2}
 \caption{Caption of Figure 2.}
 \end{minipage}
 \end{figure}
@@ -299,24 +304,17 @@ This statement requires citation \cite{Smith2012}.
 
 
 %------------------------------------------------
-%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+
+%\thispagestyle{empty}
 %\setbeamertemplate{headline}{}
 \begin{frame}
-%\rmfamily
 \begin{center}
-\Huge\bfseries \textcolor{structure.fg}{Thank~you!}
+\Huge\bfseries\textcolor{structure.fg}{Thank~you!}
+%\Huge\bfseries\textcolor{structure.fg}{The End}
 \end{center}
 \end{frame}
 
-
 %------------------------------------------------
-
-%\thispagestyle{empty}
-%%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
-%\begin{frame}
-%\Huge{\centerline{The End}}
-%\end{frame}
-
 
 
 \end{document}

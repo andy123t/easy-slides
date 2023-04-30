@@ -4,36 +4,37 @@
 %   compile using PDFTeXify or PDFLaTeX
 %======================================================%
 
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------
 %   PACKAGES AND THEMES
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------
 
 \documentclass[noamsthm,notheorems,11pt,compress]{beamer}
 
 %--------- Beamer theme ----------
-\usetheme[en]{ParaSlides}  % cn,en
+\usetheme[en]{ParaSlides}
+% language: cn, en
+
 
 %---------- Define new commands ----------
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 
 
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------
 %	TITLE PAGE
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------
 
 \title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-\author{John Smith \\[5pt] \textit{xyz@math.univ.edu} }% Your email address} % Your name
-\institute[NU] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
-{\vspace{-8pt}\blue{Name of University} \\[15pt] % Your institution for the title page
-\small Very Large Conference \\[5pt] July 28, 2022
+\author{John Smith \\[4pt]
+\textit{xyz@math.univ.edu}
+}
+\institute[NU]{\vspace{-8pt} \blue{Name of University} \\[15pt]
+\small Very Large Conference \\[4pt]
+July 28, 2022
 }
 
-\date{} % Date, can be changed to a custom date
-
-
-\graphicspath{{./figures/}}
+\date{}
 
 
 \begin{document}
@@ -46,26 +47,22 @@
 {\setbeamertemplate{headline}{}
 \setbeamertemplate{footline}{}
 \begin{frame}
-\titlepage % Print the title page as the first slide
-\end{frame}}
-
+\titlepage
+\end{frame}
+}
 
 \begin{frame}
 \frametitle{Outline}
-  \vskip 10pt
-  \hspace*{0.5em}
-  \parbox[t]{.95\textwidth}{
-  \begin{minipage}[c]{\textwidth}
-  \setlength{\baselineskip}{2.8em}
-  \tableofcontents
-  \end{minipage}
-  }
+\leftskip=1.0em
+\tableofcontents
 \end{frame}
 
 
-%--------------------------------------------------------------------------------
+%------------------------------------------------
 %	PRESENTATION SLIDES
-%--------------------------------------------------------------------------------
+%------------------------------------------------
+
+
 
 %------------------------------------------------
 \section{Introduction} %
@@ -122,7 +119,7 @@ This is the alertblock environment. The quick brown fox jumps over the lazy dog.
 
 %------------------------------------------------
 
-\section{Numerical method} %for the model equation
+\section{Numerical method} % for the model equation
 
 %------------------------------------------------
 
@@ -165,18 +162,18 @@ This is a lemma environment.
 This is a proposition environment.
 \end{proposition}
 
-\begin{theorem}[Mass--energy]
+\begin{theorem}[Mass--energy]\label{thm:MassEnergy}
 This is a theorem environment.
 \end{theorem}
 
 \begin{proof}
-  This is a proof environment.
+This is a proof environment. \QED
 \end{proof}
 \end{frame}
 
 
 %------------------------------------------------
-\section{Numerical results}  %experiments
+\section{Numerical results}  % experiments
 %------------------------------------------------
 
 
@@ -185,7 +182,7 @@ This is a theorem environment.
 
 This is Pythagorean's theorem
 \begin{equation}\label{Pythagorean}
-  \alert{a^2+b^2=c^2}.
+  \alert{a^2+b^2=c^2.}
 \end{equation}
 
 This is a simple three-line table.
@@ -207,7 +204,7 @@ Treatment 3 & 0.0009271 & 0.296 \\
 %------------------------------------------------
 
 \begin{frame}
-\frametitle{}
+
 The new command PLCR is defined to set the length of the width of the table. They can be used in the tabularx environment.
 
 \begin{table}[!htp]
@@ -229,25 +226,30 @@ The new command PLCR is defined to set the length of the width of the table. The
 	\bottomrule
 \end{tabularx}
 \end{table}
+
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Verbatim}
-\begin{example}[Theorem Slide Code]
-\begin{verbatim}
-\begin{frame}
-\frametitle{Theorem}
-\begin{theorem}[Mass--energy equivalence]
-$E = mc^2$
-\end{theorem}
-\end{frame}\end{verbatim}
+\begin{example}
+This is a example environment.
 \end{example}
 
+\bigskip
+Verbatim environment
+\begin{verbatim}
 \begin{theorem}[Mass--energy equivalence]
 $E = mc^2$
 \end{theorem}
+\end{verbatim}
+
+\bigskip
+\begin{theorem}[Mass--energy equivalence]
+$E = mc^2$
+\end{theorem}
+
 \end{frame}
 
 %------------------------------------------------
@@ -258,7 +260,8 @@ $E = mc^2$
 Uncomment the code on this slide to include your own image from the same directory as the template .TeX file.
 \begin{figure}[htp!]
 \centering
-\includegraphics[width=0.6\linewidth]{image1.eps}
+\includegraphics[width=0.5\linewidth]{image1}
+\caption{Caption of Figure.}
 \end{figure}
 \end{frame}
 
@@ -305,12 +308,14 @@ This statement requires citation \cite{Smith2012}.
 
 
 %------------------------------------------------
+%------------------------------------------------
 
 %\setbeamertemplate{headline}{}
 \begin{frame}[standout]
 \begin{center}
 \Huge\bfseries \textcolor{structure.fg}{Thank~you!}
 \end{center}
+\vspace{2em}
 \end{frame}
 
 

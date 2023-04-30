@@ -4,37 +4,37 @@
 %   compile using PDFTeXify, PDFLaTeX or XeLaTeX
 %======================================================%
 
-%--------------------------------------------------------------------------------
+%---------------------------------------------------
 %   PACKAGES AND THEMES
-%--------------------------------------------------------------------------------
+%---------------------------------------------------
 
 \documentclass[noamsthm,notheorems,11pt,compress]{beamer}
 
 %--------- Beamer theme ----------
-\usetheme[cn]{NeatSlides}  % cn,en
+\usetheme[cn]{NeatSlides}
+% language: cn, en
+
 
 %---------- 自定义命令 ----------
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\blue}[1]{\textcolor{blue}{#1}}
 
 
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------
 %	TITLE PAGE
-%--------------------------------------------------------------------------------
+%-------------------------------------------------------
 
 \title[报告题目]{这是报告的题目这是报告的题目}
 
 \author[姓名]{报告人姓名}
-\institute[XX大学]{ \vspace{-5pt}
-\small \textcolor{blue}{XX\,大学数学系} \\[15pt]
-第\,X\,届学术会议 \\[5pt]
-202X\,年\,X\,月\,X\,日
+\institute[XX大学]{\vskip -10pt \small \blue{XX大学数学系} \\
+\medskip
+\textit{xyz@math.univ.edu} \\
+\medskip
 }
 
-\date{}
+\date[202X\,年\,X\,月\,X\,日]{第\,X\,届学术会议 \\[5pt] 202X\,年\,X\,月\,X\,日 }
 
-
-\graphicspath{{./figures/}}
 
 \begin{document}
 
@@ -46,26 +46,21 @@
 {\setbeamertemplate{headline}{}
 \setbeamertemplate{footline}{}
 \begin{frame}
-\titlepage % Print the title page as the first slide
-\end{frame}}
-
+\titlepage
+\end{frame}
+}
 
 \begin{frame}
 \frametitle{目录}
-  \vskip 10pt
-  \hspace*{0.5em}
-  \parbox[t]{.95\textwidth}{
-  \begin{minipage}[c]{\textwidth}
-  \setlength{\baselineskip}{2.8em}
-  \tableofcontents
-  \end{minipage}
-  }
+\leftskip=1.0em
+\tableofcontents
 \end{frame}
 
 
-%--------------------------------------------------------------------------------
+%------------------------------------------------
 %	PRESENTATION SLIDES
-%--------------------------------------------------------------------------------
+%------------------------------------------------
+
 
 %------------------------------------------------
 \section{研究背景}
@@ -158,12 +153,12 @@ This is a lemma environment. 这是一个引理环境.
 This is a proposition environment. 这是一个命题环境.
 \end{proposition}
 
-\begin{theorem}[Mass--energy]
+\begin{theorem}[Mass--energy]\label{thm:MassEnergy}
 This is a theorem environment. 这是一个定理环境.
 \end{theorem}
 
 \begin{proof}
-  This is a proof environment. 这是一个证明环境.
+This is a proof environment. 这是一个证明环境. \QED
 \end{proof}
 
 \end{frame}
@@ -175,7 +170,7 @@ This is a theorem environment. 这是一个定理环境.
 \begin{frame}
 \frametitle{定理示例}
 
-\begin{theorem}[Lax-Milgram Lemma] \upshape
+\begin{theorem}[Lax-Milgram Lemma]
 Let $X$ be a Hilbert space, let $a(\cdot, \cdot)$ : $X \times X \rightarrow \mathbb{R}$ be a continuous and coercive bilinear form, and let $F : X \rightarrow \mathbb{R}$ be a linear functional in $X^{\prime}$. Then the variational problem:
 \begin{equation}
   \alert{
@@ -196,27 +191,23 @@ has a unique solution. Moreover, we have
 
 \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
 \frametitle{Verbatim}
-\begin{example}[Theorem Slide Code]
+
+\begin{example}[Test]
+  This is a example environment.
+\end{example}
+
+\bigskip
+Verbatim environment
 \begin{verbatim}
-\begin{frame}
-\frametitle{Theorem}
 \begin{theorem}[Mass--energy equivalence]
 $E = mc^2$
 \end{theorem}
-\end{frame}\end{verbatim}
-\end{example}
+\end{verbatim}
 
-\begin{table}
-\caption{这是一个三线表.}
-\begin{tabular}{lll}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\bigskip
+\begin{theorem}[Mass--energy equivalence]
+$E = mc^2$
+\end{theorem}
 
 \end{frame}
 
@@ -322,35 +313,32 @@ An example of the \verb|\cite| command to cite within the presentation:\\~
 
 This statement requires citation \cite{Smith2012}. \\~
 
-文献引用示例 \cite{LiLiu1997}, 可以修改引用文献样式.
+文献引用示例 \cite{LiLiu2009}, 可以修改引用文献样式.
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
 \frametitle{References}
-\footnotesize{
+\small
 \begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
 \bibitem[Smith, 2012]{Smith2012} John Smith, Title of the publication, \emph{Journal Name}, 12(3):45--678, 2012.
-\bibitem[李荣华, 1997]{LiLiu1997} 李荣华, 刘播. 微分方程数值解法. 东南大学出版社, 1997.
+\bibitem[李荣华, 2009]{LiLiu2009} 李荣华, 刘播. 微分方程数值解法. 北京: 高等教育出版社, 2009.
 \end{thebibliography}
-}
+
 \end{frame}
 
 
 %------------------------------------------------
 
-
-%\setbeamertemplate{background canvas}[vertical shading][bottom=white,top=structure.fg!25]
+%\thispagestyle{empty}
 %\setbeamertemplate{headline}{}
 \begin{frame}
-%\sffamily
 \begin{center}
 \Huge\bfseries \textcolor{structure.fg}{谢\quad 谢! \\[8pt]
 Thank you!}
 \end{center}
 \end{frame}
-
 
 %------------------------------------------------
 
