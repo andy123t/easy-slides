@@ -140,10 +140,6 @@
 % change the style of frametitle
 \setbeamertemplate{frametitle}{%
   \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
-  \@tempdima=\textwidth%
-  \advance\@tempdima by\beamer@leftmargin%
-  \advance\@tempdima by\beamer@rightmargin%
-  \hfill%
   \begin{beamercolorbox}[wd=\paperwidth,sep=8pt,left]{frametitle}
     \usebeamerfont{frametitle}%
     \vbox{}\vskip-1.2ex%

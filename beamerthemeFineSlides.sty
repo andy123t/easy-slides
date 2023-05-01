@@ -98,7 +98,7 @@
 %\setbeamertemplate{headline}{}
 \setbeamertemplate{headline}{%
   \leavevmode
-  \begin{beamercolorbox}[wd=\paperwidth,ht=0.5ex,dp=1ex,left]{}
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1ex,dp=0.5ex,left]{}
   \end{beamercolorbox}
 }
 
@@ -114,12 +114,13 @@
 
 %---------- frametitle add a color box ----------
 \setbeamertemplate{frametitle}{%
-    \nointerlineskip%
-    \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=1ex]{frametitle}
+  \nointerlineskip%
+  \vskip-4pt
+  \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=1ex]{frametitle}
     \centering\large\bfseries \tcbox[on line,boxsep=4pt,left=0pt,right=0pt,
-      top=0pt,bottom=0pt,colframe=green!10!black,colback=green!10,
-      boxrule=0.8pt]{\color{deepred}\insertframetitle}
-    \end{beamercolorbox}%
+    top=0pt,bottom=0pt,colframe=green!10!black,colback=green!10,
+    boxrule=0.8pt]{\color{deepred}\insertframetitle}
+  \end{beamercolorbox}%
 }
 
 %---------- new commands for tables ----------

@@ -115,27 +115,30 @@
 %\setbeamerfont{block body alert}{}
 
 % change the style of headline and footline
-\setbeamertemplate{headline}{}
+%\setbeamertemplate{headline}{}
+\setbeamertemplate{headline}{%
+  \leavevmode
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1ex,dp=0.5ex,left]{}
+  \end{beamercolorbox}
+}
+
 \setbeamertemplate{footline}{%
   \setbox\kmbmr@tmpboxa\hbox{[\ifnum\insertsectionnumber>0\boldmath\insertsectionnumber.~\insertsection\else\char"7E\fi]}
   \setbox\kmbmr@tmpboxb\hbox{[\insertframenumber/\inserttotalframenumber]}
-  \ht\kmbmr@tmpboxa=1mm\dp\kmbmr@tmpboxa=0mm
-  \ht\kmbmr@tmpboxb=1mm\dp\kmbmr@tmpboxb=0mm
-  \vspace{5.2mm}
-  \hspace{2mm}\noindent\box\kmbmr@tmpboxa\hfill\box\kmbmr@tmpboxb\hspace{2mm}
-  \vspace{1.3mm}
+  \ht\kmbmr@tmpboxa=3pt\dp\kmbmr@tmpboxa=0pt
+  \ht\kmbmr@tmpboxb=3pt\dp\kmbmr@tmpboxb=0pt
+  \vspace{15pt}
+  \hspace{6pt}\noindent\box\kmbmr@tmpboxa\hfill\box\kmbmr@tmpboxb\hspace{6pt}
+  \vspace{4pt}
 }
 
 % change the style of frametitle
 \setbeamertemplate{frametitle}{%
   \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
-  \@tempdima=\textwidth%
-  \advance\@tempdima by\beamer@leftmargin%
-  \advance\@tempdima by\beamer@rightmargin%
-  \hfill%
+  \vskip-6pt
   \begin{beamercolorbox}[wd=\paperwidth,sep=8pt,left]{frametitle}
     \usebeamerfont{frametitle}%
-    \vbox{}\vskip-1.2ex%
+    \vbox{}\vskip-1ex%
     \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
     \strut\insertframetitle\strut\par%
     {%

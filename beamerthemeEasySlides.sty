@@ -12,12 +12,10 @@
 \mode<presentation>
 
 \newif\if@docn\@docnfalse
-\newif\if@line\@linefalse
 \newif\if@light\@lightfalse
 \newif\if@deep\@deepfalse
 \DeclareOption{cn}{\@docntrue}
 \DeclareOption{en}{\@docnfalse}
-\DeclareOption{line}{\@linetrue}
 \DeclareOption{light}{\@lighttrue}
 \DeclareOption{deep}{\@deeptrue}
 \ExecuteOptions{light}
@@ -44,20 +42,13 @@
 \definecolor{lightblue}{rgb}{0.1,0.46,0.78}
 \definecolor{deepblue}{rgb}{0.12,0.24,0.72}
 \definecolor{lightgreen}{rgb}{0.2,0.7,0.5}
-\definecolor{cyanline}{rgb}{0.35,0.70,0.725}
 \definecolor{footer}{rgb}{0.5,0.2,0.5}
-\setbeamercolor{structure}{fg=lightblue}
 
 \if@light
 \setbeamercolor{structure}{fg=lightblue}
 \fi
 \if@deep
 \setbeamercolor{structure}{fg=deepblue}
-\fi
-
-\if@line
-\setbeamercolor{upper separation line}{bg=cyanline}
-%\setbeamercolor{lower separation line}{bg=cyanline}
 \fi
 
 % font style setting
@@ -111,7 +102,7 @@
 %\setbeamertemplate{headline}{}
 \setbeamertemplate{headline}{%
   \leavevmode
-  \begin{beamercolorbox}[wd=\paperwidth,ht=0.5ex,dp=1ex,left]{}
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1ex,dp=0.5ex,left]{}
   \end{beamercolorbox}
 }
 
@@ -125,12 +116,24 @@
   \kern1.5em\vskip4pt%
 }
 
-%---------- frametitle add a line ----------
+%---------- frametitle ----------
 \setbeamertemplate{frametitle}{%
-  \leavevmode\linespread{1}\insertframetitle
-  \vskip-1.8ex%
-  \begin{beamercolorbox}[colsep=0.4pt,wd=\linewidth]{upper separation line}
-  \end{beamercolorbox}
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \vskip-2pt
+  \begin{beamercolorbox}[wd=\paperwidth,sep=8pt,leftskip=2pt]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1.2ex%
+    \if@tempswa\else\csname beamer@fteleft\endcsname\fi%
+    \strut\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\strut\insertframesubtitle\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-8pt\fi
+  \end{beamercolorbox}%
 }
 
 %---------- new commands for tables ----------
