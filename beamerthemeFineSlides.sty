@@ -115,8 +115,7 @@
 %---------- frametitle add a color box ----------
 \setbeamertemplate{frametitle}{%
   \nointerlineskip%
-  \vskip-4pt
-  \begin{beamercolorbox}[wd=\paperwidth,ht=4ex,dp=1ex]{frametitle}
+  \begin{beamercolorbox}[wd=\paperwidth,ht=3.5ex,dp=1ex]{frametitle}
     \centering\large\bfseries \tcbox[on line,boxsep=4pt,left=0pt,right=0pt,
     top=0pt,bottom=0pt,colframe=green!10!black,colback=green!10,
     boxrule=0.8pt]{\color{deepred}\insertframetitle}
@@ -174,7 +173,7 @@
 \fi
 \theorembodyfont{} %\itshape %\setlength{\baselineskip}{15pt}
 \theoremindent0em
-\theoremseparator{.\hspace{0.2em}} %if break -> add \vspace{0.2em}
+\theoremseparator{.} %if break -> add \vspace{0.2em}
 \theoremnumbering{arabic}
 \colorlet{thmcolor}{lightgreen}
 \newmdtheoremenv[linecolor=thmcolor,middlelinewidth=0.5pt,
@@ -221,8 +220,10 @@
     {\expname}%[section]
 
 %----- proof and solution environment -----
-\newenvironment{proof}{\par{\bfseries\color{structure.fg}{\pfname}}\rmfamily~}{\par}
-\newenvironment{solution}{\par{\bfseries\color{structure.fg}{\solname}}\rmfamily~}{\par}
+\newenvironment{proof}{\par{\bfseries\color{structure.fg}\pfname}%
+\rmfamily\enspace\ignorespaces}{\par}
+\newenvironment{solution}{\par{\bfseries\color{structure.fg}\solname}%
+\rmfamily\enspace\ignorespaces}{\par}
 
 %---------- proof symbol ----------
 \newcommand{\QED}{\hfill\ensuremath{\square}}
@@ -247,8 +248,8 @@
 
 %---------- adjust the spacing of the formula ----------
 \AtBeginDocument{
-    \setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}
-    \setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}
+    \setlength{\abovedisplayskip}{6pt plus 2pt minus 2pt}
+    \setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}
     \setlength{\abovedisplayshortskip}{2pt}
     \setlength{\belowdisplayshortskip}{2pt}
     %\setlength{\arraycolsep}{2pt}

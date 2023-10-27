@@ -57,7 +57,8 @@
 \setbeamercolor{section in toc}{fg=structure.fg}
 
 % font style setting
-\usefonttheme{serif}
+\usefonttheme[onlymath]{serif}
+%\usefonttheme{serif}
 \usefonttheme{professionalfonts}
 
 \setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
@@ -233,7 +234,7 @@
 \fi
 \theorembodyfont{} %\itshape %\setlength{\baselineskip}{15pt}
 \theoremindent0em
-\theoremseparator{.\hspace{0.2em}} %if break -> add \vspace{0.2em}
+\theoremseparator{.} %if break -> add \vspace{0.2em}
 \theoremnumbering{arabic}
 \colorlet{thmcolor}{darkgreen}
 \newmdtheoremenv[linecolor=lncolor1,middlelinewidth=0.5pt,
@@ -280,8 +281,10 @@
     {\expname}%[section]
 
 %----- proof and solution environment -----
-\newenvironment{proof}{\par{\bfseries\color{structure.fg}{\pfname}}\rmfamily~}{\par}
-\newenvironment{solution}{\par{\bfseries\color{structure.fg}{\solname}}\rmfamily~}{\par}
+\newenvironment{proof}{\par{\bfseries\color{structure.fg}\pfname}%
+\rmfamily\enspace\ignorespaces}{\par}
+\newenvironment{solution}{\par{\bfseries\color{structure.fg}\solname}%
+\rmfamily\enspace\ignorespaces}{\par}
 
 %---------- proof symbol ----------
 \newcommand{\QED}{\hfill\ensuremath{\square}}
@@ -306,8 +309,8 @@
 
 %---------- adjust the spacing of the formula ----------
 \AtBeginDocument{
-    \setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}
-    \setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}
+    \setlength{\abovedisplayskip}{6pt plus 2pt minus 2pt}
+    \setlength{\belowdisplayskip}{6pt plus 2pt minus 2pt}
     \setlength{\abovedisplayshortskip}{2pt}
     \setlength{\belowdisplayshortskip}{2pt}
     %\setlength{\arraycolsep}{2pt}
