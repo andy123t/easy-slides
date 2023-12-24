@@ -127,7 +127,8 @@
   \leavevmode%
   \hbox{%
   \begin{beamercolorbox}[wd=.8\paperwidth,ht=4.0ex,dp=0.6ex,left]{section in head/foot}%
-    \usebeamerfont{section in head/foot}\kern2.5ex\ifnum\insertsectionnumber>0\boldmath\insertsectionnumber.~\insertsection\else\insertshorttitle\fi
+    \usebeamerfont{section in head/foot}\kern2.5ex\ifnum\insertsectionnumber>0%
+	\boldmath\insertsectionnumber.~\insertsectionhead\else\insertshorttitle\fi
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.2\paperwidth,ht=4.0ex,dp=0.6ex,right]{page number in head/foot}%
     \usebeamerfont{page number in head/foot}\hfill %\kern1ex

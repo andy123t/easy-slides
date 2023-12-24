@@ -91,7 +91,7 @@
       %\color{structure.fg}
       \pgfpathcircle{\pgfpoint{0.1pt}{.75ex}}{1.3ex}
       \pgfusepath{fill}
-      \pgftext[base]{\color{white}\inserttocsectionnumber}
+      \pgftext[base]{\normalfont\color{white}\inserttocsectionnumber}
     \end{pgfpicture}\kern2ex%
   }%
   \inserttocsection\par
@@ -121,11 +121,11 @@
 \fi
 
 %---------- block setting ----------
-\setbeamerfont{block title}{size=\normalsize,series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize,family=\rmfamily,series=\bfseries}
 %\setbeamerfont{block body}{}
-\setbeamerfont{block title example}{size=\normalsize,series=\bfseries}
+\setbeamerfont{block title example}{size=\normalsize,family=\rmfamily,series=\bfseries}
 %\setbeamerfont{block body example}{}
-\setbeamerfont{block title alert}{size=\normalsize,series=\bfseries}
+\setbeamerfont{block title alert}{size=\normalsize,family=\rmfamily,series=\bfseries}
 %\setbeamerfont{block body alert}{}
 
 % change the style of headline
